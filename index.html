@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Fútbol - Página moderna</title>
+  <link  href="style.css" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
+
+
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">⚽</div>
+        <div>
+          <h1>Fútbol Total</h1>
+          <p class="lead">Noticias, equipos, estadísticas y pasión por el balón</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#noticias">Noticias</a>
+        <a href="#equipos">Equipos</a>
+        <a href="#partidos">Partidos</a>
+        <a href="#galeria">Galería</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="noticias">
+      <img src="https://images.unsplash.com/photo-1517927011995-9a5a9f0b0b99?q=80&w=800&auto=format&fit=crop" alt="balon">
+      <div class="info">
+        <h2>Resumen de la jornada</h2>
+        <p class="muted">Resultados, goles y emociones del fin de semana. Revive los mejores momentos y descubre quién lidera la tabla.</p>
+        <div class="teams">
+          <div class="team">Real Madrid</div>
+          <div class="team">Barcelona</div>
+          <div class="team">Atlético</div>
+          <div class="team">Tigres</div>
+        </div>
+      </div>
+    </section>
+
+    <main class="grid">
+      <article class="card" id="equipos">
+        <h3>Equipos destacados</h3>
+        <p class="muted">Los clubes más en forma de la temporada.</p>
+        <ul style="margin-top:10px;padding-left:18px">
+          <li>Manchester City — Precisión y ataque letal.</li>
+          <li>Inter — Muralla defensiva impenetrable.</li>
+          <li>Bayern — Furia ofensiva en su máxima expresión.</li>
+        </ul>
+      </article>
+
+      <article class="card" id="partidos">
+        <h3>Próximos partidos</h3>
+        <div style="margin-top:10px">
+          <div class="fixture"><span>Real Madrid vs Barcelona</span><span class="score">21 Oct, 18:00</span></div>
+          <div class="fixture"><span>Atlético vs Valencia</span><span class="score">22 Oct, 20:00</span></div>
+          <div class="fixture"><span>Tigres vs América</span><span class="score">23 Oct, 19:30</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Jugadores a seguir</h3>
+        <p class="muted">Futuras estrellas y leyendas que brillan en cada jornada.</p>
+        <ol style="margin-top:10px;padding-left:18px">
+          <li>Vinícius Jr.</li>
+          <li>Jude Bellingham</li>
+          <li>Erling Haaland</li>
+        </ol>
+      </article>
+
+      <article class="card">
+        <h3>Estadísticas rápidas</h3>
+        <p class="muted">Datos clave que definen la competencia.</p>
+        <div class="stats">
+          <div class="stat-box"><strong>2.9</strong><div class="muted">Goles / partido</div></div>
+          <div class="stat-box"><strong>56%</strong><div class="muted">Posesión media</div></div>
+          <div class="stat-box"><strong>3.0</strong><div class="muted">Tarjetas / juego</div></div>
+        </div>
+      </article>
+    </main>
+
+    <section id="galeria" class="gallery">
+      <img src="https://images.unsplash.com/photo-1508264165352-258859e62245?q=80&w=800&auto=format&fit=crop" alt="futbol 1">
+      <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=800&auto=format&fit=crop" alt="futbol 2">
+      <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=800&auto=format&fit=crop" alt="futbol 3">
+      <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?q=80&w=800&auto=format&fit=crop" alt="futbol 4">
+    </section>
+
+    <footer>
+      <p>⚽ Fútbol Total © 2025 — Creado con pasión. <a href="#noticias" style="color:var(--accent);text-decoration:none">Volver arriba</a></p>
+    </footer>
+  </div>
+
+  <script>
+    // Enlace activo según scroll
+    const links = document.querySelectorAll('nav a');
+    const sections = ['noticias','equipos','partidos','galeria'].map(id=>document.getElementById(id));
+    window.addEventListener('scroll',()=>{
+      const y = window.scrollY + 130;
+      let idx = sections.findIndex(s=>s && s.offsetTop <= y);
+      if(idx === -1) idx = 0;
+      links.forEach((a,i)=> a.style.opacity = (i===idx? '1':'0.6'));
+    });
+  </script>
+</body>
+</html>
